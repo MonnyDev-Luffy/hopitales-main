@@ -1,19 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {GlobalTableComponent} from "../../../shared/components/global-table/global-table.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-citas',
   standalone: true,
-    imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule],
   templateUrl: './citas.component.html',
   styleUrls: ['./citas.component.scss']
 })
 export class CitasComponent implements OnInit {
   // Datos de ejemplo para la tabla
-  dataSource:cita[] = [
+  dataSource: cita[] = [
     {
       hospital: 'Hospital 1',
       medico: 'Doctor 1',
@@ -39,11 +41,29 @@ export class CitasComponent implements OnInit {
 
   // Columnas a renderizar
   displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'fecha', "estado"];
-  constructor() { }
+
+  constructor(
+    public dialog: MatDialog
+  ) {
+  }
 
   ngOnInit(): void {
   }
 
+  eliminar() {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {body: '¿Estás seguro de que deseas realizar esta acción?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Acción confirmada');
+      } else {
+        console.log('Acción cancelada');
+      }
+    });
+
+  }
 }
 
 interface cita {
