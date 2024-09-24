@@ -1,2 +1,15 @@
 <app-navbar></app-navbar>
 <router-outlet></router-outlet>
+
+<ng-template #actions let-element>
+  <button mat-icon-button>
+    <mat-icon>delete</mat-icon>
+  </button>
+</ng-template>
+
+<!-- Paso el template de acciones al componente hijo -->
+<app-global-table
+  [dataSource]="dataSource"
+  [displayedColumns]="displayedColumns"
+  [actionsTemplate]="actions">
+</app-global-table>
