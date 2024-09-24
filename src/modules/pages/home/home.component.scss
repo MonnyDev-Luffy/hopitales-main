@@ -1,0 +1,10 @@
+.dynamic-icon {
+  --icon-size: 1.875rem; /* Default size, equivalent to text-3xl in Tailwind CSS */
+
+  font-size: var(--icon-size);  /* Dynamic font size */
+  width: calc(var(--icon-size) * 1); /* Width scales with font size */
+  height: calc(var(--icon-size) * 1); /* Height scales with font size */
+  display: flex; /* Center the icon if needed */
+  align-items: center;
+  justify-content: center;
+}
