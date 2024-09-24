@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NavbarComponent} from "../components/navbar/navbar.component";
+import {GlobalTableComponent} from "../shared/components/global-table/global-table.component";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import {NavbarComponent} from "../components/navbar/navbar.component";
     AppRoutingModule,
     BrowserAnimationsModule,
     NavbarComponent,
+    GlobalTableComponent,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
