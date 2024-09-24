@@ -71,6 +71,20 @@ export class CitasComponent implements OnInit {
     });
   }
 
+  realizado() {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: {body: '¿Está seguro de realizar esta acción?'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Acción confirmada');
+      } else {
+        console.log('Acción cancelada');
+      }
+    });
+  }
+
   irBusquedaPacientes(){
     this.routerService.irBusquedaPacientes();
   }
