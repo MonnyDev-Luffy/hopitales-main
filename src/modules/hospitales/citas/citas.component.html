@@ -1,3 +1,6 @@
+<div class="m-4">
+  <h1 class="flex justify-center">Gestión de citas</h1>
+</div>
 <div class="w-full mb-2">
   <ng-template #actions let-element>
     <button mat-icon-button>
@@ -27,7 +30,7 @@
   </button>
 
   <div class="flex justify-center px-5">
-    <button
+    <button (click)="irHome()"
       mat-flat-button
       color="accent">
       <mat-icon color="primary">arrow_back</mat-icon>

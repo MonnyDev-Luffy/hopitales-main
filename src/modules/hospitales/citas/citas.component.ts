@@ -52,9 +52,14 @@ export class CitasComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  irHome() {
+    console.log('irHome');
+    this.routerService.irHome()
+  }
+
   eliminar() {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {body: '¿Estás seguro de que deseas realizar esta acción?'}
+      data: {body: '¿Está seguro de realizar esta acción?'}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -64,7 +69,6 @@ export class CitasComponent implements OnInit {
         console.log('Acción cancelada');
       }
     });
-
   }
 
   irBusquedaPacientes(){
