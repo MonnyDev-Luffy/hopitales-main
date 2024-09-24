@@ -23,4 +23,8 @@ export class RouterService {
   irCitasPacientes(){
     return this.ir('/hospitales/citas');
   }
+
+  irBusquedaPacientes(){
+    return this.ir('/hospitales/busqueda-pacientes');
+  }
 }

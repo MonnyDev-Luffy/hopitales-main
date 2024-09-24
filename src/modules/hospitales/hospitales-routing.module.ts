@@ -14,6 +14,10 @@ const routes: Routes = [
     path: 'citas',
     loadComponent: () => import('./citas/citas.component').then((citas) => citas.CitasComponent)
   },
+  {
+    path: 'busqueda-pacientes',
+    loadComponent: () => import('./busqueda-pacientes/busqueda-pacientes.component').then((busquedaPacientes) => busquedaPacientes.BusquedaPacientesComponent)
+  }
 ];
 
 @NgModule({

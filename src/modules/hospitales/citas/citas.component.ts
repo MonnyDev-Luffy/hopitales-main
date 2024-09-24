@@ -5,6 +5,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
 import { MatDialog } from '@angular/material/dialog';
+import {RouterService} from "../../servicios/router.service";
 
 @Component({
   selector: 'app-citas',
@@ -43,7 +44,8 @@ export class CitasComponent implements OnInit {
   displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'fecha', "estado"];
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private routerService: RouterService
   ) {
   }
 
@@ -63,6 +65,10 @@ export class CitasComponent implements OnInit {
       }
     });
 
+  }
+
+  irBusquedaPacientes(){
+    this.routerService.irBusquedaPacientes();
   }
 }
 
