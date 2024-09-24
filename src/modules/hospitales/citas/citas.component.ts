@@ -5,6 +5,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
 import { MatDialog } from '@angular/material/dialog';
+import {RouterService} from "../../servicios/router.service";
 
 @Component({
   selector: 'app-citas',
@@ -43,16 +44,22 @@ export class CitasComponent implements OnInit {
   displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'fecha', "estado"];
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private routerService: RouterService
   ) {
   }
 
   ngOnInit(): void {
   }
 
+  irHome() {
+    console.log('irHome');
+    this.routerService.irHome()
+  }
+
   eliminar() {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: {body: '¿Estás seguro de que deseas realizar esta acción?'}
+      data: {body: '¿Está seguro de realizar esta acción?'}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -62,7 +69,6 @@ export class CitasComponent implements OnInit {
         console.log('Acción cancelada');
       }
     });
-
   }
 }
 
