@@ -7,6 +7,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NavbarComponent} from "../components/navbar/navbar.component";
 import {GlobalTableComponent} from "../shared/components/global-table/global-table.component";
 import {MatIconModule} from "@angular/material/icon";
+import {MatButtonModule} from "@angular/material/button";
+import {MatTableModule} from "@angular/material/table";
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import {MatIconModule} from "@angular/material/icon";
     NavbarComponent,
     GlobalTableComponent,
     MatIconModule,
+    MatButtonModule,
+    MatTableModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

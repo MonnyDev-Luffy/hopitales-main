@@ -14,4 +14,13 @@ export class RouterService {
   ir(url: string) {
     return this.router.navigate([url]);
   }
+
+
+  irHome(){
+    return this.ir('/hospitales/home');
+  }
+
+  irCitasPacientes(){
+    return this.ir('/hospitales/citas');
+  }
 }
