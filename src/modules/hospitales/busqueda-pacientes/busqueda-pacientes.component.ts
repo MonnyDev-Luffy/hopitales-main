@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {GlobalTableComponent} from "../../../shared/components/global-table/global-table.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialog} from "@angular/material/dialog";
 import {RouterService} from "../../servicios/router.service";
 import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
 
 @Component({
   selector: 'app-busqueda-pacientes',
@@ -58,7 +59,15 @@ export class BusquedaPacientesComponent implements OnInit {
 
   }
 
-  irCitas(){
+  agendarCita(element: any) {
+    this.dialog.open(AgendarCitasComponent, {
+      data: element
+    }).afterClosed().subscribe(result => {
+
+    })
+  }
+
+  irCitas() {
     this.routerService.irCitasPacientes();
   }
 }

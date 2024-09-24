@@ -4,13 +4,15 @@ import {GlobalTableComponent} from "../../../shared/components/global-table/glob
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
-import { MatDialog } from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
 import {RouterService} from "../../servicios/router.service";
+import {GlobalCardComponent} from "../../../shared/components/global-card/global-card.component";
+import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
 
 @Component({
   selector: 'app-citas',
   standalone: true,
-  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, GlobalCardComponent],
   templateUrl: './citas.component.html',
   styleUrls: ['./citas.component.scss']
 })
@@ -69,6 +71,18 @@ export class CitasComponent implements OnInit {
         console.log('Acción cancelada');
       }
     });
+  }
+
+  editar(element: any) {
+    this.dialog.open(AgendarCitasComponent, {
+      data: element
+    }).afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Acción confirmada');
+      } else {
+        console.log('Acción cancelada');
+      }
+    })
   }
 
   realizado() {
