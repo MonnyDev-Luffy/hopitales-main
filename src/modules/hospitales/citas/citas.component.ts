@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {GlobalTableComponent} from "../../../shared/components/global-table/global-table.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {RouterService} from "../../servicios/router.service";
 
 @Component({
   selector: 'app-citas',
@@ -39,9 +40,18 @@ export class CitasComponent implements OnInit {
 
   // Columnas a renderizar
   displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'fecha', "estado"];
-  constructor() { }
+
+  constructor(
+    private routerService: RouterService
+  ) {
+  }
 
   ngOnInit(): void {
+  }
+
+  irHome() {
+    console.log('irHome');
+    this.routerService.irHome()
   }
 
 }
