@@ -5,22 +5,23 @@
   <form [formGroup]="citaForm">
     <!-- Sección de datos del hospital -->
     <div class="mb-4">
-      <app-global-card [title]="'Datos del Paciente'">
+      <app-global-card [title]="'Datos del paciente'">
         <div class="paciente-info">
           <p><strong>Nombre:</strong> {{ data.nombre ?? '' }}</p>
-          <p><strong>Fecha de Afiliación:</strong> {{ data.afiliacion ?? '' }}</p>
+          <p><strong>CURP:</strong> {{ data.afiliacion ?? '' }}</p>
+          <p><strong>Número de teléfono:</strong> {{ data.numero ?? '' }}</p>
         </div>
       </app-global-card>
     </div>
 
     <div class="mb-4">
-      <app-global-card [title]="'Datos del Hospital'">
+      <app-global-card [title]="'Datos del hospital'">
         <div>
           <!-- Select para hospital asignado -->
           <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Hospital Asignado</mat-label>
+            <mat-label>Especialidad asignada</mat-label>
             <mat-select formControlName="hospital">
-              <mat-option *ngFor="let hospital of hospitales" [value]="hospital.id">
+              <mat-option *ngFor="let hospital of especialidad" [value]="hospital.id">
                 {{ hospital.nombre }}
               </mat-option>
             </mat-select>
@@ -28,7 +29,7 @@
 
           <!-- Select para médico asignado -->
           <mat-form-field appearance="outline" class="w-full">
-            <mat-label>Médico Asignado</mat-label>
+            <mat-label>Médico asignado</mat-label>
             <mat-select formControlName="medico">
               <mat-option *ngFor="let medico of medicos" [value]="medico.id">
                 {{ medico.nombre }}
@@ -40,17 +41,17 @@
     </div>
 
     <!-- Sección de fecha de la cita -->
-    <app-global-card [title]="'Fecha de la Cita'">
+    <app-global-card [title]="'Fecha de la cita'">
       <div class="flex flex-row gap-4">
         <!-- Input para la fecha de la cita -->
         <mat-form-field appearance="outline">
-          <mat-label>Fecha de la Cita</mat-label>
+          <mat-label>Fecha de la cita</mat-label>
           <input matInput formControlName="fechaCita" type="date">
         </mat-form-field>
 
         <!-- TimePicker para la hora de la cita -->
         <mat-form-field appearance="outline">
-          <mat-label>Hora de la Cita</mat-label>
+          <mat-label>Hora de la cita</mat-label>
           <input matInput formControlName="horaCita" type="time">
         </mat-form-field>
       </div>
@@ -60,5 +61,5 @@
 
 <mat-dialog-actions align="end" class="flex flex-row gap-4">
   <button mat-button color="primary" (click)="onConfirm()">Aceptar</button>
-  <button mat-button (click)="onCancel()">Cancelar</button>
+  <button mat-button color="accent" (click)="onCancel()">Cancelar</button>
 </mat-dialog-actions>

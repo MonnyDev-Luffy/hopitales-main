@@ -15,7 +15,6 @@ export class RouterService {
     return this.router.navigate([url]);
   }
 
-
   irHome(){
     return this.ir('/hospitales/home');
   }
@@ -26,5 +25,21 @@ export class RouterService {
 
   irBusquedaPacientes(){
     return this.ir('/hospitales/busqueda-pacientes');
+  }
+
+  irRegistrarPacientes(){
+    return this.ir('/hospitales/registrar-pacientes');
+  }
+
+  irRegistrarMedicos(){
+    return this.ir('/hospitales/registrar-medicos');
+  }
+
+  irPacientes(){
+    return this.ir('/hospitales/pacientes');
+  }
+
+  irMedicos(){
+    return this.ir('/hospitales/medicos');
   }
 }

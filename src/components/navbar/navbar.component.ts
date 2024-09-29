@@ -30,4 +30,14 @@ export class NavbarComponent implements OnInit {
     this.routerService.irCitasPacientes().then(r => false)
   }
 
+  irPacientes() {
+    console.log('irPacientes');
+    this.routerService.irPacientes().then(r => false)
+  }
+
+  irMedicos() {
+    console.log('irMedicos');
+    this.routerService.irMedicos().then(r => false)
+  }
+
 }

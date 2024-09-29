@@ -1,0 +1,27 @@
+<div class="flex items-start justify-center" style="height: 100vh; overflow: hidden;">
+  <div class="p-6 rounded-lg shadow-md w-full max-w-md bg-gray-100" style="margin-top: 120px;">
+    <h2 class="text-2xl font-bold mb-6 text-center">Registrar paciente</h2>
+      <div class="mb-4">
+        <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+        <input type="text" id="nombre" name="nombre" ngModel required
+               class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Nombre">
+      </div>
+
+    <div class="mb-4">
+      <label for="curp" class="block text-sm font-medium text-gray-700">CURP</label>
+      <input type="text" id="curp" name="curp" ngModel required
+             class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="CURP">
+    </div>
+
+    <div class="mb-4">
+      <label for="telefono" class="block text-sm font-medium text-gray-700">Número de teléfono</label>
+      <input type="text" id="telefono" name="telefono" ngModel required
+             class="mt-1 p-2 border border-gray-300 rounded-md w-full" placeholder="Número de teléfono">
+    </div>
+
+    <div class="flex items-center justify-center">
+      <button mat-flat-button color="primary" style="margin-right: 15px;" (click)="irPacientes()">Aceptar</button>
+      <button mat-flat-button color="accent" (click)="irPacientes()">Cancelar</button>
+    </div>
+  </div>
+</div>

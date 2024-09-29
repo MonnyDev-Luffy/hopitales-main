@@ -1,24 +1,23 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {GlobalTableComponent} from "../../../shared/components/global-table/global-table.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog} from "@angular/material/dialog";
 import {RouterService} from "../../servicios/router.service";
-import {GlobalCardComponent} from "../../../shared/components/global-card/global-card.component";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
 import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
-  selector: 'app-citas',
+  selector: 'app-pacientes',
   standalone: true,
-  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, GlobalCardComponent, MatCardModule, MatTooltipModule],
-  templateUrl: './citas.component.html',
-  styleUrls: ['./citas.component.scss']
+  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, MatCardModule, MatTooltipModule],
+  templateUrl: './pacientes.component.html',
+  styleUrls: ['./pacientes.component.scss']
 })
-export class CitasComponent implements OnInit {
+export class PacientesComponent implements OnInit {
   // Datos de ejemplo para la tabla
   dataSource: cita[] = [
     {
@@ -48,7 +47,7 @@ export class CitasComponent implements OnInit {
   ];
 
   // Columnas a renderizar
-  displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'curp', 'telefono', 'fecha'];
+  displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'curp', 'telefono', 'fecha' ];
 
   constructor(
     public dialog: MatDialog,
@@ -104,8 +103,8 @@ export class CitasComponent implements OnInit {
     });
   }
 
-  irBusquedaPacientes(){
-    this.routerService.irBusquedaPacientes();
+  irRegistrarPacientes(){
+    this.routerService.irRegistrarPacientes();
   }
 }
 

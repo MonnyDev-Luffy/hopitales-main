@@ -1,54 +1,50 @@
-import {Component, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {MatDialog} from "@angular/material/dialog";
+import {RouterService} from "../../servicios/router.service";
+import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
+import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
 import {GlobalTableComponent} from "../../../shared/components/global-table/global-table.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
-import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
-import {MatDialog} from '@angular/material/dialog';
-import {RouterService} from "../../servicios/router.service";
-import {GlobalCardComponent} from "../../../shared/components/global-card/global-card.component";
-import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatTooltipModule} from "@angular/material/tooltip";
 
 @Component({
-  selector: 'app-citas',
+  selector: 'app-medicos',
   standalone: true,
-  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, GlobalCardComponent, MatCardModule, MatTooltipModule],
-  templateUrl: './citas.component.html',
-  styleUrls: ['./citas.component.scss']
+  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, MatCardModule, MatTooltipModule],
+  templateUrl: './medicos.component.html',
+  styleUrls: ['./medicos.component.scss']
 })
-export class CitasComponent implements OnInit {
+export class MedicosComponent implements OnInit {
   // Datos de ejemplo para la tabla
   dataSource: cita[] = [
     {
       hospital: 'Hospital General',
       medico: 'José Luis Montes',
-      paciente: 'Agripino Hernández Gómez',
-      curp: 'ALBD700811MCHRJR89',
-      telefono: '55 6508 7246',
-      fecha: '2024-09-29'
+      cedula: '10258284',
+      especialidad: 'Médicina general',
+      estado: 'Disponible'
     },
     {
       hospital: 'Hospital Siglo XXI',
       medico: 'Elizabeth Martínez González',
-      paciente: 'Josefina Montes de Oca',
-      curp: 'JUMC961114HCHCDF31',
-      telefono: '55 5632 1100',
-      fecha: '2024-10-04'
+      cedula: '10283450',
+      especialidad: 'Pediatría',
+      estado: 'Disponible'
     },
     {
       hospital: 'Hospital Médica Sur',
       medico: 'Raymundo Pérez Pérez',
-      paciente: 'Lisa Antonia Peralta De la luz',
-      curp: 'LVZL160905MASQUH43',
-      telefono: '55 7190 4377',
-      fecha: '2022-10-15'
+      cedula: '16071773',
+      especialidad: 'Ginecología',
+      estado: 'Disponible'
     }
   ];
 
   // Columnas a renderizar
-  displayedColumns: string[] = ['hospital', 'medico', 'paciente', 'curp', 'telefono', 'fecha'];
+  displayedColumns: string[] = ['hospital', 'medico', 'cedula', 'especialidad', "estado"];
 
   constructor(
     public dialog: MatDialog,
@@ -104,16 +100,15 @@ export class CitasComponent implements OnInit {
     });
   }
 
-  irBusquedaPacientes(){
-    this.routerService.irBusquedaPacientes();
+  irRegistrarMedicos(){
+    this.routerService.irRegistrarMedicos();
   }
 }
 
 interface cita {
   hospital: string;
   medico: string;
-  paciente: string;
-  curp: string;
-  telefono: string;
-  fecha: string;
+  cedula: string;
+  especialidad: string;
+  estado: string;
 }

@@ -17,7 +17,23 @@ const routes: Routes = [
   {
     path: 'busqueda-pacientes',
     loadComponent: () => import('./busqueda-pacientes/busqueda-pacientes.component').then((busquedaPacientes) => busquedaPacientes.BusquedaPacientesComponent)
-  }
+  },
+  {
+    path: 'registrar-pacientes',
+    loadComponent: () => import('./registrar-pacientes/registrar-pacientes.component').then((registrarPacientes) => registrarPacientes.RegistrarPacientesComponent)
+  },
+  {
+    path: 'registrar-medicos',
+    loadComponent: () => import('./registrar-medicos/registrar-medicos.component').then((registrarMedicos) => registrarMedicos.RegistrarMedicosComponent)
+  },
+  { //  http://localhost:4200/hospitales/pacientes
+    path: 'pacientes',
+    loadComponent: () => import('./pacientes/pacientes.component').then((pacientes) => pacientes.PacientesComponent)
+  },
+  { //  http://localhost:4200/hospitales/medicos
+    path: 'medicos',
+    loadComponent: () => import('./medicos/medicos.component').then((medicos) => medicos.MedicosComponent)
+  },
 ];
 
 @NgModule({

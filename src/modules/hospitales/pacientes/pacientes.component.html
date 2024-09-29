@@ -1,12 +1,12 @@
 <div class="m-4">
-  <h1 class="flex justify-center">Gestión de citas</h1>
+  <h1 class="flex justify-center">Gestión de pacientes</h1>
 </div>
 <div class="w-full mb-2">
   <ng-template #actions let-element>
-    <button mat-icon-button (click)="editar(element)" [matTooltip]="'Editar cita'">
+    <button mat-icon-button (click)="editar(element)" [matTooltip]="'Editar paciente'">
       <mat-icon color="primary">edit</mat-icon>
     </button>
-    <button mat-icon-button (click)="eliminar()" [matTooltip]="'Eliminar cita'">
+    <button mat-icon-button (click)="eliminar()" [matTooltip]="'Eliminar médico'">
       <mat-icon color="accent">delete</mat-icon>
     </button>
   </ng-template>
@@ -19,17 +19,17 @@
 </div>
 
 <div class="flex justify-center pb-4">
-  <button (click)="irBusquedaPacientes()"
-    mat-flat-button
-    color="primary">
-    <mat-icon color="accent">event_available</mat-icon>
-    Agendar
+  <button (click)="irRegistrarPacientes()"
+          mat-flat-button
+          color="primary">
+    <mat-icon color="accent">add</mat-icon>
+    Registrar
   </button>
 
   <div class="flex justify-center px-5">
     <button (click)="irHome()"
-      mat-flat-button
-      color="accent">
+            mat-flat-button
+            color="accent">
       <mat-icon color="primary">arrow_back</mat-icon>
       Regresar
     </button>
@@ -44,16 +44,12 @@
       </div>
       <div style="margin-bottom: 10px; display: flex;">
         <mat-icon color="primary">edit</mat-icon>
-        <span style="margin-left: 8px;">Editar cita</span>
+        <span style="margin-left: 8px;">Editar paciente</span>
       </div>
       <div style="margin-bottom: 10px; display: flex;">
         <mat-icon color="accent">delete</mat-icon>
-        <span style="margin-left: 8px;">Eliminar cita</span>
+        <span style="margin-left: 8px;">Eliminar paciente</span>
       </div>
     </mat-card>
   </div>
 </div>
-
-
-
-

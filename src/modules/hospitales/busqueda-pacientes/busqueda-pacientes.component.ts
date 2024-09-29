@@ -7,11 +7,13 @@ import {MatDialog} from "@angular/material/dialog";
 import {RouterService} from "../../servicios/router.service";
 import {ConfirmDialogComponent} from "../../../shared/components/confirm-dialog/confirm-dialog.component";
 import {AgendarCitasComponent} from "../agendar-citas/agendar-citas.component";
+import {MatTooltipModule} from "@angular/material/tooltip";
+import {MatCardModule} from "@angular/material/card";
 
 @Component({
   selector: 'app-busqueda-pacientes',
   standalone: true,
-  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule],
+  imports: [CommonModule, GlobalTableComponent, MatButtonModule, MatIconModule, MatTooltipModule, MatCardModule],
   templateUrl: './busqueda-pacientes.component.html',
   styleUrls: ['./busqueda-pacientes.component.scss']
 })
@@ -19,21 +21,24 @@ export class BusquedaPacientesComponent implements OnInit {
   // Datos de ejemplo para la tabla
   dataSource: paciente[] = [
     {
-      nombre: 'Paciente 1',
-      afiliacion: '12/12/2022'
+      nombre: '',
+      curp: '',
+      telefono: ''
     },
     {
-      nombre: 'Paciente 2',
-      afiliacion: '12/12/2022'
+      nombre: '',
+      curp: '',
+      telefono: ''
     },
     {
-      nombre: 'Paciente 3',
-      afiliacion: '12/12/2022'
+      nombre: '',
+      curp: '',
+      telefono: ''
     }
   ];
 
   // Columnas a renderizar
-  displayedColumns: string[] = ['nombre', 'afiliacion'];
+  displayedColumns: string[] = ['nombre', 'curp', 'telefono'];
 
   constructor(
     public dialog: MatDialog,
@@ -74,5 +79,6 @@ export class BusquedaPacientesComponent implements OnInit {
 
 interface paciente {
   nombre: string;
-  afiliacion: string;
+  curp: string;
+  telefono: string;
 }

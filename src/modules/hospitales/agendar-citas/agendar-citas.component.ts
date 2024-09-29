@@ -19,16 +19,16 @@ import {Component, Inject, OnInit} from "@angular/core";
 export class AgendarCitasComponent implements OnInit {
   citaForm: FormGroup;
 
-  hospitales = [
-    {id: 1, nombre: 'Hospital A'},
-    {id: 2, nombre: 'Hospital B'},
-    {id: 3, nombre: 'Hospital C'}
+  especialidad = [
+    {id: 1, nombre: 'Médicina general'},
+    {id: 2, nombre: 'Pediatría'},
+    {id: 3, nombre: 'Ginecología'}
   ];
 
   medicos = [
-    {id: 1, nombre: 'Dr. Juan Pérez'},
-    {id: 2, nombre: 'Dra. María López'},
-    {id: 3, nombre: 'Dr. Carlos García'}
+    {id: 1, nombre: 'Dr. José Luis Montes'},
+    {id: 2, nombre: 'Dra. Elizabeth Martínez González'},
+    {id: 3, nombre: 'Dr. Raymundo Pérez Pérez'}
   ];
 
   constructor(
@@ -37,7 +37,7 @@ export class AgendarCitasComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.citaForm = this.fb.group({
-      hospital: ['', Validators.required],
+      especialidad: ['', Validators.required],
       medico: ['', Validators.required],
       fechaCita: ['', Validators.required],
       horaCita: ['', Validators.required]
@@ -48,7 +48,7 @@ export class AgendarCitasComponent implements OnInit {
     console.log(this.data);
     if (this.data.paciente) {
       this.citaForm.patchValue({
-        hospital: 1,
+        especialidad: 1,
         medico: 1,
         fechaCita: this.data.fecha,
         horaCita: '09:00' // Puedes asignar una hora por defecto si no la tienes en los datos
@@ -64,6 +64,7 @@ export class AgendarCitasComponent implements OnInit {
     } else {
       console.log('El formulario no es válido');
     }
+    this.dialogRef.close();
   }
 
   onCancel() {
