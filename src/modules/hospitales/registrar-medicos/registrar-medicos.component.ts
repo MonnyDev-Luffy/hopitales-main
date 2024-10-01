@@ -7,7 +7,7 @@ import {RouterService} from "../../servicios/router.service";
 @Component({
   selector: 'app-registrar-medicos',
   standalone: true,
-    imports: [CommonModule, FormsModule, MatButtonModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, MatButtonModule, ReactiveFormsModule],
   templateUrl: './registrar-medicos.component.html',
   styleUrls: ['./registrar-medicos.component.scss']
 })
